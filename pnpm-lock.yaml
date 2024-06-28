@@ -7,7 +7,7 @@ settings:
 dependencies:
   '@slidev/cli':
     specifier: ^0.49.5
-    version: 0.49.5(@types/markdown-it@14.1.1)(@vue/compiler-sfc@3.4.27)(postcss@8.4.38)(vue-template-compiler@2.7.16)
+    version: 0.49.5(@types/markdown-it@14.1.1)(@vue/compiler-sfc@3.4.27)(playwright-chromium@1.45.0)(postcss@8.4.38)(vue-template-compiler@2.7.16)
   '@slidev/theme-default':
     specifier: latest
     version: 0.25.0
@@ -19,10 +19,15 @@ dependencies:
     version: 0.1.1
   slidev-theme-light-icons:
     specifier: ^1.0.2
-    version: 1.0.2(@slidev/client@0.49.5)(shiki@1.6.1)(typescript@5.4.5)(vue-template-compiler@2.7.16)
+    version: 1.0.2(@slidev/client@0.49.5)(playwright-chromium@1.45.0)(shiki@1.6.1)(typescript@5.4.5)(vue-template-compiler@2.7.16)
   vue:
     specifier: ^3.4.27
     version: 3.4.27(typescript@5.4.5)
+
+devDependencies:
+  playwright-chromium:
+    specifier: ^1.45.0
+    version: 1.45.0
 
 packages:
 
@@ -1194,7 +1199,7 @@ packages:
     dev: false
     optional: true
 
-  /@slidev/cli@0.49.5(@types/markdown-it@14.1.1)(@vue/compiler-sfc@3.4.27)(postcss@8.4.38)(vue-template-compiler@2.7.16):
+  /@slidev/cli@0.49.5(@types/markdown-it@14.1.1)(@vue/compiler-sfc@3.4.27)(playwright-chromium@1.45.0)(postcss@8.4.38)(vue-template-compiler@2.7.16):
     resolution: {integrity: sha512-PYvV8Qr3/EeyPb6s0yJkF0+rVopQOltmSc/72RpV8GcELIUcmQInT8iNmkp1iQcKNdFBgbFtgrguoXP9I7YgCg==}
     engines: {node: '>=18.0.0'}
     hasBin: true
@@ -1247,6 +1252,7 @@ packages:
       open: 10.1.0
       pdf-lib: 1.17.1
       plantuml-encoder: 1.4.0
+      playwright-chromium: 1.45.0
       postcss-nested: 6.0.1(postcss@8.4.38)
       pptxgenjs: 3.12.0
       prismjs: 1.29.0
@@ -1299,7 +1305,7 @@ packages:
       - vue-template-es2015-compiler
     dev: false
 
-  /@slidev/cli@0.7.4(typescript@5.4.5)(vue-template-compiler@2.7.16):
+  /@slidev/cli@0.7.4(playwright-chromium@1.45.0)(typescript@5.4.5)(vue-template-compiler@2.7.16):
     resolution: {integrity: sha512-psUwQw6XLn8ftfUMKY0e9eOKMXcZ2pYsz0JQdcWmYU6wx14GylArT+gj3MMAomdbTVyl7PgfWXqhrfG7ECTDxA==}
     engines: {node: '>=14.0.0'}
     hasBin: true
@@ -1329,6 +1335,7 @@ packages:
       markdown-it-link-attributes: 3.0.0
       monaco-editor: 0.23.0
       pdf-lib: 1.17.1
+      playwright-chromium: 1.45.0
       prismjs: 1.29.0
       prompts: 2.4.2
       shiki: 0.9.15
@@ -6592,6 +6599,19 @@ packages:
     resolution: {integrity: sha512-sxMwpDw/ySY1WB2CE3+IdMuEcWibJ72DDOsXLkSmEaSzwEUaYBT6DWgOfBiHGCux4q433X6+OEFWjlVqp7gL6g==}
     dev: false
 
+  /playwright-chromium@1.45.0:
+    resolution: {integrity: sha512-wKZ1NeRZSXp25bYL00X4REv/3mgZQ6QUC6OGTfYZY/YZyorbC/3Fr1WATCB/yF9SCd79gSWBzRCYv4Bf7DzW7g==}
+    engines: {node: '>=18'}
+    hasBin: true
+    requiresBuild: true
+    dependencies:
+      playwright-core: 1.45.0
+
+  /playwright-core@1.45.0:
+    resolution: {integrity: sha512-lZmHlFQ0VYSpAs43dRq1/nJ9G/6SiTI7VPqidld9TDefL9tX87bTKExWZZUF5PeRyqtXqd8fQi2qmfIedkwsNQ==}
+    engines: {node: '>=18'}
+    hasBin: true
+
   /points-on-curve@0.2.0:
     resolution: {integrity: sha512-0mYKnYYe9ZcqMCWhUjItv/oHjvgEsfKvnUTg8sAtnHr3GVy7rGkXCb6d5cSyqrWqL4k81b9CPg3urd+T7aop3A==}
     dev: false
@@ -7249,11 +7269,11 @@ packages:
     dev: false
     optional: true
 
-  /slidev-theme-light-icons@1.0.2(@slidev/client@0.49.5)(shiki@1.6.1)(typescript@5.4.5)(vue-template-compiler@2.7.16):
+  /slidev-theme-light-icons@1.0.2(@slidev/client@0.49.5)(playwright-chromium@1.45.0)(shiki@1.6.1)(typescript@5.4.5)(vue-template-compiler@2.7.16):
     resolution: {integrity: sha512-rcXi/ugBjVVqL9gMDZGjQuxnVXGLMcrpRsM4MHeccAa0KXldheBq4s5VfiuzpUFxBz938dJGfTyAt0HVr0ViBg==}
     engines: {node: '>=14.0.0'}
     dependencies:
-      '@slidev/cli': 0.7.4(typescript@5.4.5)(vue-template-compiler@2.7.16)
+      '@slidev/cli': 0.7.4(playwright-chromium@1.45.0)(typescript@5.4.5)(vue-template-compiler@2.7.16)
       '@slidev/theme-default': 0.7.9(@slidev/client@0.49.5)(shiki@1.6.1)
       light-icons: 1.0.12
     transitivePeerDependencies:
