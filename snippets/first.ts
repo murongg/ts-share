@@ -15,4 +15,16 @@ type errors = [
 ]
 
 
-type First<T> = any
+// type First<T extends any[]> = T['length'] extends 0 ? never : T[0]
+type First<T extends any[]> = T extends [infer First, ...infer rest] ? First : never
+
+const [a,b,c] = [1,2,3]
+
+
+// function first(t) {
+//   if(Array.isArray(t) && t.length > 0) {
+//     return t[0]
+//   } else {
+//     return 'never'
+//   }
+// }

@@ -8,4 +8,8 @@ type cases = [
 
 type error = If<null, 'a', 'b'>
 
-type If<C, T, F> = any
+type If<C, T, F> = C extends true ? T : F
+
+// function if(c, t, f) {
+//   return c ? t : f
+// }

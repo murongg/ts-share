@@ -6,4 +6,4 @@ type cases = [
   Expect<Equal<Push<['1', 2, '3'], boolean>, ['1', 2, '3', boolean]>>,
 ]
 
-type Push<T, U> = any
+type Push<T extends any[], U> = [...T, U]

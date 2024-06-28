@@ -1,6 +1,6 @@
 ---
 layout: cover
-title: Typescript type gymnastics
+title: TypeScript type gymnastics
 # apply any unocss classes to the current slide
 class: text-center
 transition: slide-left
@@ -8,9 +8,9 @@ mdc: true
 hideInToc: true
 ---
 
-# Typescript 类型体操
+# TypeScript 类型体操
 
-(Typescript 类型编程)
+(TypeScript 类型编程)
 
 ---
 layout: image-right
@@ -49,7 +49,7 @@ layout: default
 
 <v-clicks :every='2'>
 
-- Javascript
+- JavaScript
 
 ```ts
 let a = 1;
@@ -57,7 +57,7 @@ const b = '2';
 var c = 'c'
 ```
 
-- Typescript Type
+- TypeScript Type
 
 ```ts
 type A = number
@@ -85,9 +85,14 @@ let b2: B = '3'
 </v-clicks>
 </div>
 
+<v-click> 
+
 ## Reference
 
-- https://www.typescriptlang.org/docs/handbook/2/everyday-types.html
+- https://www.TypeScriptlang.org/docs/handbook/2/everyday-types.html
+</v-click>
+
+
 
 <style>
 .slidev-vclick-target {
@@ -109,7 +114,7 @@ layout: default
 
 <v-clicks :every='2'>
 
-- Javascript
+- JavaScript
 
 ```ts
 if(true) {
@@ -121,7 +126,7 @@ if(true) {
 const truth = true ? 1 : '2';
 ```
 
-- Typescript Type
+- TypeScript Type
 
 ```ts {monaco}  
 type A = number
@@ -132,9 +137,13 @@ type C = A extends B ? true : false // 仅支持三元表达式
 </v-clicks>
 </div>
 
+<v-click> 
+
 ### Reference
 
-- https://www.typescriptlang.org/docs/handbook/2/conditional-types.html
+- https://www.TypeScriptlang.org/docs/handbook/2/conditional-types.html
+
+</v-click> 
 
 ---
 layout: default
@@ -142,51 +151,55 @@ layout: default
 
 # Loop
 
-<div class="grid grid-cols-2 gap-x-4 gap-y-2">
+<div class="grid grid-cols-2 gap-x-2 gap-y-2">
 
 <v-clicks :every='2'>
 
-- Javascript
+- JavaScript
 
-```ts
+```ts {monaco-run} {width: '300px'}
 for(let i = 0; i < 10; i++) {} // 普通的for循环
 for(const item of [1, 2, 3]) {} // for of 循环
-for(const key in {a: 1, b: 2}) {}
+for(const key in {a: 1, b: 2}) {} // for in 循环
 ```
 
-- Typescript Type <span v-mark="{ at: 2, color: 'orange', type: 'underline' }">
+- TypeScript Type <span v-mark="{ at: 2, color: 'orange', type: 'underline' }">
 (Object)
 </span>
 
-```ts {monaco}  
+```ts {monaco} {width: '300px'}
 type A = {
   a: number
   b: string
   c: boolean
 }
-type ABLoop = A[keyof A] // A['a'] | A['b'] | A['c']
+type ALoop = A[keyof A] // A['a'] | A['b'] | A['c'] 
 type AMap = {
   [Key in keyof A]: A[Key]
 } // for(const key in {a: 1, b: 2}) {}
 ```
 
-- Typescript Type <span v-mark="{ at: 3, color: 'orange', type: 'underline' }">
+- TypeScript Type <span v-mark="{ at: 3, color: 'orange', type: 'underline' }">
 (Array)
 </span>
 
-```ts {monaco}
+```ts {monaco} {width: '300px'}
 type B = [number, string, boolean]
 type BLoop1 = B extends Array<infer T> ? T : never
 type BLoop2 = unknown extends Array<infer T> ? T : never
+type Bloop3 = B[keyof B] // B[0] | B[1] | B[2] | property
+type Bloop4 = B[number] // B[0] | B[1] | B[2]
 ```
 
 </v-clicks>
 </div>
+<v-click> 
 
 ## Reference
 
-- https://www.typescriptlang.org/docs/handbook/2/keyof-types.html
+- https://www.TypeScriptlang.org/docs/handbook/2/keyof-types.html
 
+</v-click> 
 
 ---
 layout: default
@@ -214,7 +227,7 @@ console.log(a === b)
 
 ```ts {monaco-run}
 // type
-type A = [number, string] extends [infer T, string] ? T : never
+type A = [number, string] extends [infer a, string] ? a : never
 // js
 const [a] = ['abc', '123']
 console.log(`a: ${a}`)
@@ -227,7 +240,7 @@ console.log(`a: ${a}`)
 layout: default
 ---
 
-# If
+# Challenge 1 - If
 
 <<< ./snippets/if.ts {monaco-write} {height:'400px'}
 
@@ -236,7 +249,7 @@ layout: default
 layout: default
 ---
 
-# First of Array
+# Challenge 2 - First of Array
 
 <<< ./snippets/first.ts {monaco-write} {height:'400px'}
 
@@ -245,7 +258,7 @@ layout: default
 layout: default
 ---
 
-# Push
+# Challenge 3 - Push
 
 <<< ./snippets/push.ts {monaco-write} {height:'400px'}
 
@@ -254,7 +267,7 @@ layout: default
 layout: default
 ---
 
-# Readonly
+# Challenge 4 - Readonly
 
 <<< ./snippets/readonly.ts {monaco-write} {height:'400px'}
 
@@ -262,7 +275,7 @@ layout: default
 layout: default
 ---
 
-# Readonly2
+# Challenge 5 - Readonly2
 
 <<< ./snippets/readonly2.ts {monaco-write} {height:'400px'}
 
@@ -271,10 +284,6 @@ layout: default
 layout: default
 ---
 
-# Includes
+# Challenge 6 - Includes
 
-<<< ./snippets/includes.ts {monaco-write} {height:'400px'}
-
-<!--
-saadsa
--->
+<<< ./snippets/includes.ts {monaco-write} {height:'400px', autorun: true}
